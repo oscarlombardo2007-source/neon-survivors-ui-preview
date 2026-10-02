@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081126">
+  <title>Neon Survivors · UI interattiva</title>
+  <link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+  <div class="showcase">
+    <header class="showcase-head">
+      <div><p class="overline">NEON SURVIVORS / UI PROTOTYPE 02</p><h1>La UI, come potrebbe apparire nel gioco.</h1></div>
+      <p>Esplora le schermate, apri i dettagli dei modelli Tripo e prova i flussi principali. Layout desktop e mobile inclusi.</p>
+    </header>
+    <div class="prototype-note"><span class="pulse-dot"></span><strong>ANTEPRIMA INTERATTIVA</strong><span>Dati giocatore e azioni simulate. Nessun acquisto, scambio o salvataggio reale.</span></div>
+    <section class="app-shell" aria-label="Prototipo interattivo Neon Survivors">
+      <div class="app-topbar">
+        <button class="wordmark" data-page="home" aria-label="Vai alla lobby"><span class="wordmark-mark">N<span>✦</span>S</span><span class="wordmark-text">NEON <b>SURVIVORS</b><small>RIDE • COLLECT • SURVIVE</small></span></button>
+        <div class="topbar-right">
+          <button class="topbar-chip coin-chip" data-page="shop"><img src="icons/coins.svg" alt=""><span id="wallet-value">12.450</span><small>COINS</small><b>＋</b></button>
+          <button class="profile-chip" data-page="social"><span class="avatar">O</span><span><b>OSCAR</b><small>LV 23 RIDER</small></span></button>
+        </div>
+      </div>
+      <div class="app-body">
+        <nav class="rail" aria-label="Navigazione principale" id="rail">
+          <div class="rail-caption">EXPLORE</div>
+          <button class="nav active" data-page="home"><img src="icons/play-gate.svg" alt=""><span>Lobby</span></button>
+          <button class="nav" data-page="battle"><img src="icons/boost.svg" alt=""><span>Battle</span></button>
+          <button class="nav" data-page="collection"><img src="icons/collection.svg" alt=""><span>Collection</span></button>
+          <button class="nav" data-page="garage"><img src="icons/garage.svg" alt=""><span>Garage</span></button>
+          <button class="nav" data-page="shop"><img src="icons/shop.svg" alt=""><span>Shop</span></button>
+          <button class="nav" data-page="social"><img src="icons/social.svg" alt=""><span>Social</span></button>
+          <div class="rail-caption rail-more">MORE</div>
+          <button class="nav" data-page="royal"><img src="icons/royal.svg" alt=""><span>Royal</span></button>
+          <button class="nav" data-page="events"><img src="icons/event.svg" alt=""><span>Events</span></button>
+          <button class="nav" data-page="missions"><img src="icons/daily.svg" alt=""><span>Missions</span></button>
+          <button class="nav" data-page="leaderboard"><img src="icons/leaderboard.svg" alt=""><span>Ranking</span></button>
+        </nav>
+        <main class="stage" id="stage" tabindex="-1"></main>
+      </div>
+    </section>
+    <footer class="showcase-foot">
+      <div><strong>Asset del prototipo</strong><span>Le immagini di moto e brainrot sono render dei GLB Tripo presenti nel workspace. Le uova e gli effetti cosmetici sono rappresentazioni UI.</span></div>
+      <button class="outline small" data-action="open-icons">Vedi le 28 icone UI <span>↗</span></button>
+    </footer>
+    <section class="icons-section" id="icons-section" hidden><div class="section-heading"><div><p class="overline">VISUAL LANGUAGE</p><h2>Icone della navigazione e degli oggetti</h2></div><button class="quiet" data-action="close-icons">Chiudi ✕</button></div><div class="icon-grid" id="icon-grid"></div></section>
+  </div>
+  <div class="modal-backdrop" id="modal-root" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="prototype.js"></script>
+</body>
+</html>
