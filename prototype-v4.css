@@ -1,0 +1,60 @@
+/* Unlock-focused UI direction 04. The base stylesheet handles the shell and game HUD. */
+:root{--common:#bad8e2;--rare:#53c4ff;--epic:#bd91ff;--legendary:#ffd45e;--mythic:#ff6cba}
+.nav-item{min-height:64px;gap:13px;font-size:13px}
+.nav-item img{width:33px;height:33px;flex:none}
+.nav-item[data-page="shop"].active{border-color:#ffd45e;box-shadow:inset 4px 0 0 #ffd45e}
+.nav-item[data-page="progress"].active{border-color:#bd91ff;box-shadow:inset 4px 0 0 #bd91ff}
+.category-tab{display:flex;align-items:center;gap:8px;padding:10px 15px;font-size:12px}
+.category-tab img{width:23px;height:23px}
+.category-tab.active img{filter:brightness(0) saturate(100%) invert(11%) sepia(34%) saturate(1290%) hue-rotate(158deg)}
+.collection-intro img{width:32px;height:32px;margin-right:10px}
+.next-unlock{display:flex;align-items:center;gap:10px}.next-unlock>img{width:35px;height:35px}.next-unlock h3{margin:2px 0 5px}.objective .text-btn{margin-top:8px;padding-bottom:0}
+.item-card,.tier-card,.detail-art{--rarity:var(--common)}
+[data-rarity="COMMON"]{--rarity:var(--common)}
+[data-rarity="RARE"]{--rarity:var(--rare)}
+[data-rarity="EPIC"]{--rarity:var(--epic)}
+[data-rarity="LEGENDARY"]{--rarity:var(--legendary)}
+[data-rarity="MYTHIC"]{--rarity:var(--mythic)}
+.item-card{border:2px solid var(--rarity);background:linear-gradient(165deg,color-mix(in srgb,var(--rarity) 12%,#0e223b),#0e223b 60%)}
+.item-card[data-rarity]{border-top:2px solid var(--rarity)}
+.item-card:hover{border-color:var(--rarity);box-shadow:0 0 0 2px color-mix(in srgb,var(--rarity) 30%,transparent),0 10px 30px #0007}
+.item-card[data-rarity="LEGENDARY"],.item-card[data-rarity="MYTHIC"]{animation:rarity-pulse 3.6s ease-in-out infinite}
+@keyframes rarity-pulse{0%,100%{box-shadow:0 0 8px color-mix(in srgb,var(--rarity) 28%,transparent)}50%{box-shadow:0 0 24px color-mix(in srgb,var(--rarity) 58%,transparent)}}
+.item-art{background:radial-gradient(circle at 50% 70%,color-mix(in srgb,var(--rarity) 22%,transparent),transparent 60%),#0b1a2e}
+.item-body strong{font-size:13px}
+.item-body small{font-size:11px}
+.state-chip{z-index:2;font-size:9px;border-color:var(--rarity);background:#071322ef;color:#fff}
+.is-locked .state-chip{color:var(--rarity)}
+.rarity{font-size:10px;color:var(--common);letter-spacing:.08em}
+.rarity.RARE{color:var(--rare)}.rarity.EPIC{color:var(--epic)}.rarity.LEGENDARY{color:var(--legendary)}.rarity.MYTHIC{color:var(--mythic)}
+.locked-visual{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:radial-gradient(circle at 50% 58%,color-mix(in srgb,var(--rarity) 20%,#10243d),#081727 75%);overflow:hidden}
+.locked-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,#091828a8);pointer-events:none}
+.locked-visual .hidden-shape{position:absolute;width:130px;height:130px;opacity:.08;transform:rotate(-10deg) scale(1.25);filter:blur(8px)}
+.locked-visual .big-lock{position:relative;z-index:1;width:52px;height:52px;filter:drop-shadow(0 4px 12px #000a)}
+.locked-visual span{position:relative;z-index:1;font-size:10px;font-weight:900;letter-spacing:.1em;color:var(--rarity)}
+.detail-art[data-rarity]{border:2px solid var(--rarity)}
+.detail-art.detail-locked .locked-visual .big-lock{width:75px;height:75px}
+.detail-art.detail-locked .locked-visual span{font-size:13px}
+.detail-art .locked-visual{border-radius:8px}
+.rarity-legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 17px}
+.rarity-legend span{display:flex;align-items:center;gap:5px;padding:5px 9px;border:1px solid #31536d;border-radius:20px;background:#0b2036;color:#cedde6;font-size:9px;font-weight:900;letter-spacing:.04em}
+.rarity-legend i{width:10px;height:10px;display:block;border-radius:50%;background:var(--dot);box-shadow:0 0 7px var(--dot)}
+.legend-COMMON{--dot:var(--common)}.legend-RARE{--dot:var(--rare)}.legend-EPIC{--dot:var(--epic)}.legend-LEGENDARY{--dot:var(--legendary)}.legend-MYTHIC{--dot:var(--mythic)}
+.shop-guide{display:flex;align-items:center;gap:12px;margin-bottom:17px;padding:13px 16px;border:1px solid #dda953;border-radius:11px;background:linear-gradient(100deg,#42351b,#10243b 65%)}
+.shop-guide img{width:37px;height:37px}.shop-guide strong,.shop-guide small{display:block}.shop-guide small{color:#d9d3be}
+.shop-section{margin:20px 0 30px}.section-head{display:flex;align-items:end;justify-content:space-between;margin:22px 0 13px}.section-head h3{font:900 27px/1 'Barlow Condensed',Impact,sans-serif;text-transform:uppercase;margin:4px 0 3px}.section-head p{color:#b4cbd9;font-size:12px;margin:0}
+.shop-card .item-art,.bundle-card .item-art{height:178px}.shop-price{display:block;margin-top:8px;font-size:11px;color:#ffe39a}
+.route-card{display:flex;align-items:center;gap:13px;width:100%;padding:15px;border:2px solid #9c78eb;border-radius:10px;background:linear-gradient(110deg,#37245c,#12213a);color:white;text-align:left}
+.route-card img{width:39px;height:39px}.route-card span{flex:1}.route-card strong,.route-card small{display:block}.route-card strong{font-size:14px}.route-card small{font-size:11px;color:#d3c8e8}.route-card b{font-size:24px}
+.route-founder{border-color:#e5af61;background:linear-gradient(110deg,#4d341d,#12213a)}.route-founder small{color:#e2d0b5}
+.back-link{margin:-5px 0 15px}.rank-hero{padding:18px 20px;border-color:#bd91ff;background:linear-gradient(110deg,#3d2862,#10283d)}.rank-hero>div:first-child{display:flex;align-items:center;gap:15px}.rank-hero img{width:55px;height:55px}.rank-hero small,.rank-hero strong,.rank-hero em{display:block}.rank-hero small{font-size:10px;color:#d2bdfa;font-weight:900}.rank-hero strong{font:900 29px 'Barlow Condensed',Impact,sans-serif}.rank-hero em{font-size:11px;color:#decff4;font-style:normal}.rank-hero .progress{margin-top:15px}
+.tier-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.tier-card{display:flex;flex-direction:column;gap:8px;padding:14px;min-height:136px;border:2px solid var(--rarity);border-radius:10px;background:linear-gradient(145deg,color-mix(in srgb,var(--rarity) 17%,#0d2035),#0c1d31)}.tier-card img{width:34px;height:34px}.tier-card span{flex:1}.tier-card strong,.tier-card small{display:block}.tier-card strong{font-size:11px}.tier-card small{color:#bed0dc;font-size:10px}.tier-card b{font-size:9px;color:var(--rarity)}
+.tier-card:not(.unlocked) img{opacity:.78}.achievement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.achievement{display:flex;flex-direction:column;gap:4px;padding:14px;border-color:#657999}.achievement img{width:32px;height:32px}.achievement strong{font-size:13px}.achievement small{color:#bed0dc}.achievement span{font-size:10px;color:#ffdb78;font-weight:900}
+.founder-hero{display:flex;align-items:center;gap:18px;padding:19px;border-color:#edbb76;background:linear-gradient(110deg,#4b3522,#13243a)}.founder-hero>img{width:63px;height:63px}.founder-hero>div{flex:1}.founder-hero h3{font:900 30px 'Barlow Condensed',Impact,sans-serif;margin:3px 0}.founder-hero p{font-size:12px;color:#ddcfbd;margin:0}.founder-stamp{padding:7px 10px;border:1px solid #f1bf78;border-radius:6px;color:#ffe1b1;font-size:10px;font-weight:900;white-space:nowrap}
+.founder-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.founder-step{display:flex;align-items:center;gap:11px;padding:14px}.founder-step img{width:31px;height:31px}.founder-step span{flex:1}.founder-step strong,.founder-step small{display:block}.founder-step strong{font-size:12px}.founder-step small{font-size:10px;color:#b9cbda}.founder-step .progress{margin-top:7px}.founder-step b{font-size:11px;color:#ffdb78;white-space:nowrap}
+.founder-rewards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.reward-card{position:relative;min-height:185px;padding:126px 13px 13px;border-color:#d6a663;overflow:hidden}.reward-card .locked-visual{bottom:auto;height:118px;--rarity:var(--legendary)}.reward-card .locked-visual .big-lock{width:40px;height:40px}.reward-card .locked-visual span{font-size:9px}.reward-card strong{display:block;font-size:13px}
+.player-showcase>div{position:relative;min-height:170px;border:1px solid #446d84;border-radius:8px;background:#0b2038;overflow:hidden}.player-showcase>div>img{border:0}.trade-side .locked-visual{position:relative;height:135px;margin:8px 0;border-radius:7px;--rarity:var(--epic)}
+@media(max-width:1000px){.tier-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:800px){.nav-item{min-height:63px;gap:2px;font-size:11px}.nav-item img{width:30px;height:30px}.nav-item[data-page="shop"].active{box-shadow:inset 0 -3px 0 #ffd45e}.nav-item[data-page="progress"].active{box-shadow:inset 0 -3px 0 #bd91ff}.tier-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.main-nav{gap:0}.nav-item{font-size:9px;min-width:0;padding:3px 1px}.nav-item img{width:26px;height:26px}.category-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;overflow:visible}.category-tab{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:6px 2px;font-size:10px}.category-tab img{width:20px;height:20px}.rarity-legend{gap:5px}.rarity-legend span{font-size:8px;padding:4px 6px}.shop-card .item-art,.bundle-card .item-art{height:143px}.section-head h3{font-size:24px}.tier-list{grid-template-columns:repeat(2,minmax(0,1fr))}.achievement-grid,.founder-rewards{grid-template-columns:1fr}.founder-steps{grid-template-columns:1fr}.founder-hero{flex-wrap:wrap}.founder-hero>img{width:48px;height:48px}.founder-stamp{width:100%;text-align:center}.reward-card{min-height:150px;padding-top:117px}.reward-card .locked-visual{height:105px}}
+@media(prefers-reduced-motion:reduce){.item-card[data-rarity="LEGENDARY"],.item-card[data-rarity="MYTHIC"]{animation:none}.item-card{transition:none}}
